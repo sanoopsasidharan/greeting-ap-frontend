@@ -7,17 +7,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const rows = [
-  { name: "sdanoop", age: 20, email: "sanoop" },
-  { name: "sdanoop", age: 20, email: "sanoop" },
-
-  { name: "sdanoop", age: 20, email: "sanoop" },
-
-  { name: "sdanoop", age: 20, email: "sanoop" },
-
-  { name: "sdanoop", age: 20, email: "sanoop" },
-];
-
 export default function DenseTable({ users, showUser }) {
   return (
     <TableContainer component={Paper}>
