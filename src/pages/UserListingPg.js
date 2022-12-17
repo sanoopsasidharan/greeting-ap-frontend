@@ -3,6 +3,7 @@ import axios from "../axios";
 import Appbar from "../component/Appbar";
 import SmTables from "../component/SmTables";
 import "../component/style.css";
+import swal from "sweetalert";
 
 function UserListingPage() {
   const [users, setUsers] = useState();
@@ -25,6 +26,34 @@ function UserListingPage() {
       console.log(error);
     }
   };
+  const deletingUser = (id) => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this user!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        axios.delete(`/api/users/${id}`).then((res) => {
+          console.log(res.data);
+          console.log(res.data.status);
+          if (res.data.status) {
+            swal("Poof! User has been deleted!", {
+              icon: "success",
+            });
+            usersListingApi();
+          } else {
+            swal("Poof! User not been deleted!", {
+              icon: "error",
+            });
+          }
+        });
+      } else {
+        swal("Your user is safe!");
+      }
+    });
+  };
 
   useEffect(() => {
     usersListingApi();
@@ -36,7 +65,7 @@ function UserListingPage() {
       <div className="userListPg-main-div">
         <h3>Users List</h3>
       </div>
-      <SmTables users={users} showUser={showUser} />
+      <SmTables users={users} deletingUser={deletingUser} showUser={showUser} />
     </div>
   );
 }

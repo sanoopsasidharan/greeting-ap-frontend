@@ -12,8 +12,8 @@ function PageRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/userList" element={<UserListingPage />} />
-        <Route path="/" element={<HomePg />} />
+        <Route path="/" element={<UserListingPage />} />
+        <Route path="/home" element={<HomePg />} />
         <Route path="/register" element={<UsersRegisterPg />} />
       </Routes>
     </BrowserRouter>

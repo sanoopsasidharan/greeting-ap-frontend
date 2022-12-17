@@ -8,6 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "./style.css";
+import { Button } from "@mui/material";
 // function createData(
 //   name: string,
 //   calories: number,
@@ -40,7 +41,7 @@ const intputSm = {
   color: "#000000d1",
 };
 
-function SmTables({ users, showUser }) {
+function SmTables({ users, showUser, deletingUser }) {
   return (
     <div className="smTables-main-div">
       <div className="smTables-sub-div">
@@ -59,6 +60,9 @@ function SmTables({ users, showUser }) {
                 </TableCell>
                 <TableCell sx={fontColor} align="center">
                   Number
+                </TableCell>
+                <TableCell sx={fontColor} align="center">
+                  delete
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -86,11 +90,22 @@ function SmTables({ users, showUser }) {
                     <TableCell sx={intputSm} align="center">
                       {item.number}
                     </TableCell>
+                    <TableCell sx={intputSm} align="center">
+                      <Button
+                        color="error"
+                        onClick={() => deletingUser(item._id)}
+                        variant="contained"
+                      >
+                        delete
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             ) : (
-              <p>no users</p>
+              <div className="nouser-div">
+                <p>no users</p>
+              </div>
             )}
           </Table>
         </TableContainer>

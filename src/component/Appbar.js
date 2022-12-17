@@ -19,7 +19,6 @@ function Appbar() {
           >
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/register">Register</Nav.Link>
-            <Nav.Link href="/userList">Users</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

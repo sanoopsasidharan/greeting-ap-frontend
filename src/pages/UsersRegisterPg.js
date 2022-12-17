@@ -24,6 +24,7 @@ function UserRegisterPg() {
           setName("");
           setAge("");
           setNumber("");
+          setEmail("");
         })
         .catch((err) => {
           swal("Sorry", "there is some issues try again", "error");
